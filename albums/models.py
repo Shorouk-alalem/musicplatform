@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from artists.models import Artist 
 import datetime
@@ -9,5 +10,7 @@ class Album(models.Model):
     creation_datetime=models.DateTimeField()
     release_datetime=models.DateTimeField(blank=False)
     cost= models.DecimalField( blank=False, decimal_places=3 , max_digits=20)
+    #..1 adding is_approved field 
+    is_approved=models.BooleanField(default=False)
     def __str__(self):
         return self.name
