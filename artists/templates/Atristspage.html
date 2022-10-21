@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<heed>
+    <style>
+        .tab1{
+            display: inline-block;
+            margin-left: 30px;  
+        }
+        .tab {
+            display: inline-block;
+            margin-left: 60px;
+        }
+    </style>
+</heed>
+<html>
+       {% for element in all %}
+            Artist: <br>
+            <div class="tab1">* id: {{element.id}}</div> <br>
+            <div class="tab1">* Stage name: {{element.stage_name}}</div> <br>
+            <div class="tab1">* Social:{{element.social_link}}</div> <br>
+            <div class="tab1">* Albums: </div><br>
+            {%for item in element.albums %}
+                <div class="tab">* id: {{item.id}}</div><br>
+                <div class="tab">* Name: {{item.name}} </div><br>
+                <div class="tab">* Creation time: {{item.creation_datetime}}</div><br>
+                <div class="tab">* Release Datetime: {{item.releas_datetime}}</div><br>
+                <div class="tab">* Cost: {{item.cost}} </div><br>
+                <div class="tab">*---</div><br>
+            {% endfor %}
+        {% endfor %}
+</html>
